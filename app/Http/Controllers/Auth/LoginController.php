@@ -25,7 +25,31 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/home';
+
+    ##added by nikko
+    protected function authenticated( $user)
+    {
+
+        if(\Auth::user()->role =='admin') {
+            return redirect('/home');
+        }else
+        {
+            return redirect('/home');
+        }
+
+      
+    }
+
+    /**
+     *  Nikko define to use username as login
+     *
+     * @var string
+     */
+    public function username()
+    {
+        return 'name';
+    }
 
     /**
      * Create a new controller instance.
